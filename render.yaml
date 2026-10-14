@@ -1,0 +1,10 @@
+# Render Blueprint: one Docker web service.
+# autoDeploy is off: Render deploys only when GitHub Actions passes and calls the Deploy Hook.
+services:
+  - type: web
+    name: flask-snake
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: false

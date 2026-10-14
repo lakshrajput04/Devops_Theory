@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flask Snake</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>🐍 Flask Snake</h1>
+    <span class="badge" id="version">v{{ version }}</span>
+  </header>
+
+  <main>
+    <section class="game">
+      <div class="hud">
+        <span>Score: <strong id="score">0</strong></span>
+        <span>Best: <strong id="best">0</strong></span>
+      </div>
+      <div class="board-wrap">
+        <canvas id="board" width="400" height="400"></canvas>
+        <div class="overlay" id="overlay">
+          <p id="overlay-text">Press <kbd>Space</kbd> or tap to start</p>
+        </div>
+      </div>
+      <div class="touch-controls">
+        <button data-dir="up">▲</button>
+        <div>
+          <button data-dir="left">◀</button>
+          <button data-dir="down">▼</button>
+          <button data-dir="right">▶</button>
+        </div>
+      </div>
+      <p class="help">Arrow keys / WASD to move · Space to pause</p>
+    </section>
+
+    <aside class="leaderboard">
+      <h2>Leaderboard</h2>
+      <label>Your name <input id="player" maxlength="20" placeholder="Anonymous"></label>
+      <ol id="scores"><li class="empty">No scores yet</li></ol>
+    </aside>
+  </main>
+
+  <footer>Python Flask · Docker · GitHub Actions · Render</footer>
+
+  <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
